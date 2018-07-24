@@ -22,17 +22,17 @@
 	* delete (delete)
 
  * post 
- - 순수 create용
- - form 태그 method='POST'로 바꿔줌
- - 컨트롤러 new에 
+	순수 create용
+	form 태그 method='POST'로 바꿔줌
+	컨트롤러 new에 
  ` @token = form_authenticity_token `
- - 뷰에 
+	뷰에 
  ` <input type="hidden" name='authenticity_token' value="<%=@token %>"> `
 
  * delete
- - data-method='delete'로 바꿔주고 라우팅 (레일즈에서만 가능)
+	data-method='delete'로 바꿔주고 라우팅 (레일즈에서만 가능)
 
  * update
- - `<input type="hidden" name="_method" value="patch">`
+	`<input type="hidden" name="_method" value="patch">`
 
  
