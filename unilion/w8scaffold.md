@@ -58,7 +58,7 @@
  
  ## W8-2
  
-	#### params & form 태그
+ #### params & form 태그
 	
 	* gemfile에 `gem 'pry-rails` -> 진화한 rails console
 	* new.html.erb에 input 태그 name을 article[]로 수정
