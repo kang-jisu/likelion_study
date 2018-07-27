@@ -83,7 +83,9 @@
 	 def create  
 		@article = Article.new(article_params)
 		@article.save
-		redirect_to articles_url
+		#redirect_to articles_url(@article.id) # "artuckes/#{@article.id}"
+		#redirect_to article_url(@article)다 같은말
+		redirect_to @article
 	 end
 	```
 	
