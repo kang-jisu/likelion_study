@@ -12,11 +12,11 @@
 	* 서버를 실행시켜 /notes로 들어가보면 기존에 배웠던 CRUD 기능이 구현된 게시판이 생성되어있음.
 
  #### 기존이랑 다른점
- &#10003; link_to 
- &#10003; _form.html.erb 
-	&#10033; 중복되는 코드 하나로 사용할 수 있게 해줌
- &#10003; route.rb 에 라우팅 했던 것들 `resources :notes` 로 해놓으면 바로 됨
-	&#10033; ex ` get, post, patch, delete '/notes/:id' => 'notes# ..' `
+ * &#10003; link_to 
+ * &#10003; _form.html.erb 
+	* &#10033; 중복되는 코드 하나로 사용할 수 있게 해줌
+ * &#10003; route.rb 에 라우팅 했던 것들 `resources :notes` 로 해놓으면 바로 됨
+	* &#10033; ex ` get, post, patch, delete '/notes/:id' => 'notes# ..' `
  
  --- 
  
