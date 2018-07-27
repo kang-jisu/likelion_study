@@ -32,7 +32,7 @@
 	* index는 `@articles = Article.all `
  7. DRY원리!
 	* set_article action 만들고 이 코드 쓰는거 다 지움
-	```
+	```ruby
 	private # 다른데서 쓸 수 없게, end로 끝내는게아니고 private 밑에는 전부 private처리 위에는 public(생략)
  	 def set_article
 	  @article = Article.find(params[:id])
@@ -40,11 +40,11 @@
 	
 	```
 	* 맨 위에 적어줌
-   ```
-   before_action :set_article, only: [:show, :edit, :update, :destroy] 
-   ```
+	   ```ruby
+	   before_action :set_article, only: [:show, :edit, :update, :destroy] 
+	   ```
  8. create 액션 
-	```
+	```ruby
 	def create  
 		@article = Article.new
 		@article.title = params[:input_title]
