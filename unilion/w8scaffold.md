@@ -13,11 +13,11 @@
 	* 서버를 실행시켜 /notes로 들어가보면 기존에 배웠던 CRUD 기능이 구현된 게시판이 생성되어있음.
 
  #### 기존이랑 다른점
- * &#10003; link_to 
- * &#10003; _form.html.erb 
-	* &#10033; 중복되는 코드 하나로 사용할 수 있게 해줌
- * &#10003; route.rb 에 라우팅 했던 것들 `resources :notes` 로 해놓으면 바로 됨
-	* &#10033; ex ` get, post, patch, delete '/notes/:id' => 'notes# ..' `
+ * link_to 
+ * _form.html.erb 
+	* 중복되는 코드 하나로 사용할 수 있게 해줌
+ * route.rb 에 라우팅 했던 것들 `resources :notes` 로 해놓으면 바로 됨
+	* ex ` get, post, patch, delete '/notes/:id' => 'notes# ..' `
 	* `$ rake routes ` 하면 라우팅 확인 가능 
  --- 
  
@@ -33,14 +33,24 @@
  7. DRY원리!
 	* set_article action 만들고 이 코드 쓰는거 다 지움
 	```
-	private 
+	private # 다른데서 쓸 수 없게, end로 끝내는게아니고 private 밑에는 전부 private처리 위에는 public(생략)
  	 def set_article
 	  @article = Article.find(params[:id])
 	 end
-	end
 	
 	```
 	* 맨 위에 적어줌
-   ` before_action :set_article, only: [:show, :edit, :update, :destroy] `
-   
- 
+   ```
+   before_action :set_article, only: [:show, :edit, :update, :destroy] 
+   ```
+ 8. create 액션 
+	```
+	def create  
+		@article = Article.new
+		@article.title = params[:input_title]
+		@article.content = params[:input_content]
+		@article.save
+		redirect_to articles_url #redirect_to '/Articles' 대신 resoucres처리해준 라우팅으로
+	
+	end
+	```
