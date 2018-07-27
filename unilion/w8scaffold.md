@@ -1,4 +1,4 @@
- # Ruby on rails &#128513;
+ ## Ruby on rails &#128513;
  > scaffold_app
 
  ## W8 -1
@@ -12,6 +12,7 @@
 	* rake db:migate 
 	* 서버를 실행시켜 /notes로 들어가보면 기존에 배웠던 CRUD 기능이 구현된 게시판이 생성되어있음.
 
+	
  #### 기존이랑 다른점
  * link_to 
  * _form.html.erb 
@@ -54,14 +55,13 @@
 	end
 	```
 
- --- 
- 
+
  ## W8-2
  
  #### params & form 태그
 	
-	* gemfile에 `gem 'pry-rails` -> 진화한 rails console
-	* new.html.erb에 input 태그 name을 article[]로 수정
+ * gemfile에 `gem 'pry-rails` -> 진화한 rails console
+ * new.html.erb에 input 태그 name을 article[]로 수정
 	```ruby
 	 <input type="text" name="article[title]">
      <input type="text" name="article[content]">
@@ -69,16 +69,17 @@
 		* 이렇게하면 params를 했을때 "article" => { "title", "content"} 로 묶이게됨
 		* params.require(:article) 하면 이 묶인거만 가져올수있음.
 		* params.require(:article).permit(:title, :content) 하면 title,content만 넣을 수 있게 할 수 있음.
-	* private 액션 추가로 생성 
+ * private 액션 추가로 생성 
 	```ruby
 	def artile_params
 		params.require(:article).permit(:title, :content)
 	end
 	```
 	
-	참고 > `$ rails c --sandbox ` 하면 콘솔창에서하는거 반영안되게 콘솔 사용할수있음
+ 참고 
+ > `$ rails c --sandbox ` 하면 콘솔창에서하는거 반영안되게 콘솔 사용할수있음
 	
-	* create 컨트롤러 변경
+ * create 컨트롤러 변경
 	```ruby
 	 def create  
 		@article = Article.new(article_params)
