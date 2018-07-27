@@ -1,7 +1,7 @@
- ## Ruby on rails &#128513;
+ # Ruby on rails &#128513;
  > scaffold_app
 
- ### W8
+ ## W8 -1
 
  * scaffold 생성
 	* `rails g scaffold Note title:string content:text`
@@ -40,16 +40,51 @@
 	
 	```
 	* 맨 위에 적어줌
-	   ```ruby
-	   before_action :set_article, only: [:show, :edit, :update, :destroy] 
-	   ```
+	 ```ruby
+	 before_action :set_article, only: [:show, :edit, :update, :destroy] 
+	 ```
  8. create 액션 
 	```ruby
 	def create  
 		@article = Article.new
-		@article.title = params[:input_title]
-		@article.content = params[:input_content]
+		@article.title = params[:title]
+		@article.content = params[:content]
 		@article.save
 		redirect_to articles_url #redirect_to '/Articles' 대신 resoucres처리해준 라우팅으로 해주는 '레일즈 헬퍼'
 	end
 	```
+
+ --- 
+ 
+ ## W8-2
+ 
+	#### params & form 태그
+	
+	* gemfile에 `gem 'pry-rails` -> 진화한 rails console
+	* new.html.erb에 input 태그 name을 article[]로 수정
+	```ruby
+	 <input type="text" name="article[title]">
+     <input type="text" name="article[content]">
+	```
+		* 이렇게하면 params를 했을때 "article" => { "title", "content"} 로 묶이게됨
+		* params.require(:article) 하면 이 묶인거만 가져올수있음.
+		* params.require(:article).permit(:title, :content) 하면 title,content만 넣을 수 있게 할 수 있음.
+	* private 액션 추가로 생성 
+	```ruby
+	def artile_params
+		params.require(:article).permit(:title, :content)
+	end
+	```
+	
+	참고 > `$ rails c --sandbox ` 하면 콘솔창에서하는거 반영안되게 콘솔 사용할수있음
+	
+	* create 컨트롤러 변경
+	```ruby
+	 def create  
+		@article = Article.new(article_params)
+		@article.save
+		redirect_to articles_url
+	 end
+	```
+	
+
