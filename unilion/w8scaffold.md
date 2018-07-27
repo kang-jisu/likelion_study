@@ -50,7 +50,6 @@
 		@article.title = params[:input_title]
 		@article.content = params[:input_content]
 		@article.save
-		redirect_to articles_url #redirect_to '/Articles' 대신 resoucres처리해준 라우팅으로
-	
+		redirect_to articles_url #redirect_to '/Articles' 대신 resoucres처리해준 라우팅으로 해주는 '레일즈 헬퍼'
 	end
 	```
