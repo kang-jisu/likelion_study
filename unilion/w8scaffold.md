@@ -1,4 +1,4 @@
- ## Ruby on rails &#128513;
+ # Ruby on rails &#128513;
  > scaffold_app
 
  ## W8 -1
@@ -55,7 +55,8 @@
 	end
 	```
 
-
+ ---
+ 
  ## W8-2
  
  #### params & form 태그
@@ -76,6 +77,7 @@
 	end
 	```
 	
+	
  참고 
  > `$ rails c --sandbox ` 하면 콘솔창에서하는거 반영안되게 콘솔 사용할수있음
 	
@@ -90,4 +92,25 @@
 	 end
 	```
 	
-
+ ---
+ 
+ ## W8-3 
+ 
+ ##### view helper : form_for
+ - 레일즈에서 지원
+ - html 코드 복잡한거 바로 해줌 ex) 토큰 label 
+ - 사용법
+	- new controller에 `@article = Article.new `
+	```ruby
+	<%= form_for(@article) do |f| %> <!-- article을 위해 존재하는 form태그-->
+    <%= f.label :title %>
+    <%= f.text_field :title%>
+    
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    
+    <%= f.submit %>
+	<% end %>
+	```
+	- 다른 속성 줄땐 ,로 구분해서 사용 ex)  `<%= f.text_field :title , placeholder: '제목을 입력하세요', class: 'hack' %>`
+	- <%= f.sumbit value: '제출' %> submit은 컴마 말고 그냥 value
