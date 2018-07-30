@@ -59,7 +59,7 @@
  
  ## W8-2
  
- #### params & form 태그
+ ### params & form 태그
 	
  * gemfile에 `gem 'pry-rails` -> 진화한 rails console
  * new.html.erb에 input 태그 name을 article[]로 수정
@@ -96,7 +96,7 @@
  
  ## W8-3 
  
- ##### view helper : form_for
+ ### view helper : form_for
  - 레일즈에서 지원
  - html 코드 복잡한거 바로 해줌 ex) 토큰 label 
  - 사용법
@@ -112,5 +112,5 @@
     <%= f.submit %>
 	<% end %>
 	```
-	- 다른 속성 줄땐 ,로 구분해서 사용 ex)  `<%= f.text_field :title , placeholder: '제목을 입력하세요', class: 'hack' %>`
-	- <%= f.sumbit value: '제출' %> submit은 컴마 말고 그냥 value
+	- 다른 속성 줄땐 ,로 구분해서 사용 ex)  `<%= f.text_field :title , placeholder: '제목 입력', class: 'hack' %>`
+	- `<%= f.sumbit value: '제출' %>` submit은 컴마 말고 그냥 value
