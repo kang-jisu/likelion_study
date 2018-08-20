@@ -145,4 +145,77 @@
 </body>
  ```
  
- 이제 custom.scss 꾸며볼것
+ custom.scss
+ ```ruby
+ 
+ @import 'bootstrap';
+
+
+/* universal */
+body{
+    padding-top:80px;
+}
+
+/* typography */
+
+h1,h2,h3,h4,h5,h6{
+    line-heigth: 1;
+    
+}
+
+/* header*/
+#logo {
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-size : 1.7em;
+    font-weight: bold;
+    
+    &:hover{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+}
+
+/* footer*/
+footer{
+    margin-top: 45px;
+    
+    a{
+        color: #555;
+        &:hover {
+            color:#222;
+        }
+    }
+        
+        small{
+        float:left;
+        
+    }
+    ul {
+        float:right;
+        list-style:none;
+        li {
+            float:left;
+            margin-left:15px;
+        }
+    }
+}
+
+
+ ```
+ 
+ header, footer를
+ layout-> _header.html.erb, _footer.html.erb로 나눔
+ 
+ 그러고 application에
+ ```ruby
+ 
+<%= render 'layouts/header' %>
+  <div class="container">
+
+<%= yield %>
+    
+  </div>
+  
+<%= render 'layouts/footer' %>
+ ```
